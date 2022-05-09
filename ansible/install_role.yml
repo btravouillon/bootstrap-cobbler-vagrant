@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  connection: local
+  vars:
+    role_name: btravouillon.cobbler
+  tasks:
+    - name: Install Cobbler role
+      ansible.builtin.shell: "ansible-galaxy install {{ role_name }} --force"
