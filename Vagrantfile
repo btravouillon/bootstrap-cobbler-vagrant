@@ -1,5 +1,10 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
+require 'yaml'
+
+inventory = YAML.load_file('ansible/inventory.yml')
+vm_public_ip = inventory['all']['vars']['bootstrap_public_ip']
+vm_public_dev = inventory['all']['vars']['bootstrap_public_dev']
 
 Vagrant.configure("2") do |config|
   config.vm.box = "generic/debian11"
@@ -26,7 +31,7 @@ Vagrant.configure("2") do |config|
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
   # your network.
-  # config.vm.network "public_network", ip: "192.168.33.10"
+  config.vm.network "public_network", ip: vm_public_ip, dev: vm_public_dev
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
