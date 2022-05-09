@@ -2,7 +2,7 @@
 - hosts: localhost
   connection: local
   vars:
-    role_name: btravouillon.cobbler
+    role_name: 'git+https://github.com/btravouillon/ansible-role-cobbler.git,main,btravouillon.cobbler'
   tasks:
     - name: Install Cobbler role
       ansible.builtin.shell: "ansible-galaxy install {{ role_name }} --force"
