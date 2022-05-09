@@ -3,6 +3,7 @@ all:
   vars:
     bootstrap_public_ip: 192.168.0.9                                # <= Change
     bootstrap_public_dev: enp97s0f0                                 # <= Change
+    #bootstrap_public_nameserver: 8.8.8.8
     cobbler_api_host: localhost
     cobbler_api_username: cobbler
     cobbler_api_password: bootstrap                                 # <= Change

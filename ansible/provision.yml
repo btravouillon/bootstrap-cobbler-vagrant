@@ -3,5 +3,16 @@
   connection: local
   become: True
 
+  pre_tasks:
+    - name: Update nameserver
+      ansible.builtin.replace:
+        path: "{{ item }}"
+        regexp: '4\.2\.2\.1'
+        replace: "{{ bootstrap_public_nameserver }}"
+      loop:
+        - /etc/network/interfaces
+        - /etc/resolv.conf
+      when: bootstrap_public_nameserver is defined
+
   roles:
     - btravouillon.cobbler
