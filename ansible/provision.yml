@@ -1,5 +1,5 @@
 ---
-- hosts: localhost
+- hosts: bootstrap
   connection: local
   become: True
 

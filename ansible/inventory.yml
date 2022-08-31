@@ -38,4 +38,4 @@ all:
           distro: debian-11
           autoinstall: debian.seed
   hosts:
-    localhost:
+    bootstrap:
