@@ -25,6 +25,8 @@ Instructions
 ------------
 
 1. Clone this project to your head node.
-2. Configure the Ansible inventory to match your needs.
-3. Enter the directory and run `vagrant up`.
-4. Enable Netboot in Cobbler and start the deployment of your servers.
+2. Copy `vagrant.yml.example` to `vagrant.yml`.
+3. Edit the `vagrant.yml` configuration file to match your needs.
+4. Configure the Ansible inventory to match your needs.
+5. Enter the directory and run `vagrant up`.
+6. Enable Netboot in Cobbler and start the deployment of your servers.

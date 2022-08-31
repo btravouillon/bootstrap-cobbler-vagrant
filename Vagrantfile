@@ -2,9 +2,9 @@
 # vi: set ft=ruby :
 require 'yaml'
 
-inventory = YAML.load_file('ansible/inventory.yml')
-vm_public_ip = inventory['all']['vars']['bootstrap_public_ip']
-vm_public_dev = inventory['all']['vars']['bootstrap_public_dev']
+settings = YAML.load_file('vagrant.yml')
+vm_public_ip = settings['bootstrap_public_ip']
+vm_public_dev = settings['bootstrap_public_dev']
 
 Vagrant.configure("2") do |config|
   config.vm.box = "generic/debian11"
