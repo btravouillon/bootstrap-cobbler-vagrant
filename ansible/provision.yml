@@ -14,5 +14,9 @@
         - /etc/resolv.conf
       when: bootstrap_public_nameserver is defined
 
+    - name: Install pip
+      ansible.builtin.package:
+        name: python3-pip
+
   roles:
     - btravouillon.cobbler
