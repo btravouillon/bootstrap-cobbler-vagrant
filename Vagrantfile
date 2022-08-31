@@ -25,6 +25,9 @@ Vagrant.configure("2") do |config|
   config.vm.provision "ansible_local" do |ansible|
     ansible.limit = "all"
     ansible.inventory_path = "ansible/inventory.yml"
+    if Dir.exist?('ansible/inventory/')
+      ansible.inventory_path = "ansible/inventory/"
+    end
     ansible.playbook = "ansible/provision.yml"
     ansible.verbose = true
   end

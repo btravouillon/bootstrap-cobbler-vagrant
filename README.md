@@ -30,3 +30,13 @@ Instructions
 4. Configure the Ansible inventory to match your needs.
 5. Enter the directory and run `vagrant up`.
 6. Enable Netboot in Cobbler and start the deployment of your servers.
+
+Inventory
+---------
+
+A basic inventory is available in `ansible/inventory.yml` for demo purposes.
+
+Advanced users may want to use the inventory of their cluster to provision the
+bootsrap node. To do so, it is possible to clone their own inventory into
+`ansible/inventory/`. This will replace the basic inventory (i.e. no merge).
+The host to use in the inventory is `bootstrap`.
