@@ -6,6 +6,7 @@ settings = YAML.load_file('vagrant.yml')
 vm_public_dev = settings['bootstrap_public_dev']
 vm_public_ip = settings['bootstrap_public_ip']
 vm_public_netmask = settings['bootstrap_public_netmask']
+vm_ssh_key_type = settings['bootstrap_ssh_key_type']
 
 Vagrant.configure("2") do |config|
   config.vm.box = "generic/debian11"
@@ -15,6 +16,12 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.synced_folder "./", "/vagrant"
+
+  if vm_ssh_key_type
+    config.vm.provision "file",
+      source: "~/.ssh/id_" + vm_ssh_key_type,
+      destination: "$HOME/.ssh/id_" + vm_ssh_key_type
+  end
 
   config.vm.provision "ansible_local" do |ansible|
     ansible.limit = "localhost,all"

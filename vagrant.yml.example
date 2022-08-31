@@ -1,7 +1,10 @@
 ---
 # Define the parameters to use in the Vagrantfile
 #
-
 bootstrap_public_dev: enp97s0f0
 bootstrap_public_ip: 192.168.0.9
 bootstrap_public_netmask: 255.255.255.0
+
+# Type of the SSH key to copy to the VM.
+# The key must be located in ~/.ssh/id_<type>.
+#bootstrap_ssh_key_type: 'rsa'
