@@ -4,3 +4,4 @@
 
 bootstrap_public_dev: enp97s0f0
 bootstrap_public_ip: 192.168.0.9
+bootstrap_public_netmask: 255.255.255.0

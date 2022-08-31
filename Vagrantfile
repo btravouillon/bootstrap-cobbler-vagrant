@@ -3,8 +3,9 @@
 require 'yaml'
 
 settings = YAML.load_file('vagrant.yml')
-vm_public_ip = settings['bootstrap_public_ip']
 vm_public_dev = settings['bootstrap_public_dev']
+vm_public_ip = settings['bootstrap_public_ip']
+vm_public_netmask = settings['bootstrap_public_netmask']
 
 Vagrant.configure("2") do |config|
   config.vm.box = "generic/debian11"
@@ -31,7 +32,10 @@ Vagrant.configure("2") do |config|
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
   # your network.
-  config.vm.network "public_network", ip: vm_public_ip, dev: vm_public_dev
+  config.vm.network "public_network",
+    dev: vm_public_dev,
+    ip: vm_public_ip,
+    netmask: vm_public_netmask
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
