@@ -2,6 +2,8 @@
 - hosts: bootstrap
   connection: local
   become: True
+  vars:
+    cobbler_api_host: localhost
 
   pre_tasks:
     - name: Update nameserver
